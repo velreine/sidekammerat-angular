@@ -1,6 +1,22 @@
 <h3>Here's a list of our awesome Features!</h3>
 <ul>
-    <div *ngFor="let feature of features">
+    <div *ngFor="let feature of features" class="my-2">
         <li>{{ feature }}</li>
+        <button (click)="removeFeature(feature)" class="btn-sm btn-danger">X</button>
     </div>
 </ul>
+
+<div class="row">
+    <div class="col-3 mx-3">
+        <div class="form-group">
+            <label for="featureToAdd">Add a new feature:</label>
+            <input type="text"
+                name="featureToAdd"
+                id="featureToAdd"
+                [value]="currentFeatureToAdd"
+                (input)="currentFeatureToAdd = $event.target.value"
+                class="form-control">
+        </div>
+        <button class="btn-primary btn btn-block" (click)="addFeature()">Add new</button>
+    </div>
+</div>
